@@ -51,4 +51,4 @@ jobs:
         }' \
         --fail
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_A }}
+        TOKEN_A: ${{ secrets.TOKEN_A }}
