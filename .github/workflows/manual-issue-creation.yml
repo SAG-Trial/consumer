@@ -41,7 +41,7 @@ jobs:
       run: |
         curl --request POST \
         --url https://api.github.com/repos/${{ inputs.owner }}/${{ inputs.repo_name }}/issues \
-        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'authorization: Bearer ${{ secrets.TOKEN_A }}' \
         --header 'content-type: application/json' \
         --data '{
            "title": "Manual issue for repository ${{ inputs.owner }}/${{ inputs.repo_name }} \n\n Title: ${{ inputs.title }}",
@@ -51,4 +51,4 @@ jobs:
         }' \
         --fail
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN_A }}
