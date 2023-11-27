@@ -1,0 +1,17 @@
+name: Read File Contents
+
+on:
+    workflow_dispatch: 
+
+jobs:
+  read_file_contents:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Call reusable action
+        uses: SAG-Trial/b/.github/actions/GetPwdFile@main
+        with:
+          ORG_TOKEN: ${{ secrets.ORG_TOKEN }}
