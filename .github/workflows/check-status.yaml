@@ -9,7 +9,7 @@ on:
                 default: false
 jobs:
     check-status:
-        uses: prhsag/QM/.github/workflows/request-review.yaml@main
+        uses: SAG-Trial/QM/.github/workflows/request-review.yaml@main
         with:
             proceed: ${{ github.event.inputs.proceed }}
         secrets: inherit
