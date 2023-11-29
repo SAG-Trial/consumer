@@ -1,0 +1,40 @@
+name: Check Cycle Status
+on:
+    workflow_dispatch: 
+        inputs:
+            proceed:
+                description: 'GO/NOGO'
+                type: boolean
+                required: true
+                default: false
+jobs:
+    check-status:
+        uses: prhsag/QM/.github/workflows/request-review.yaml@main
+        with:
+            proceed: ${{ github.event.inputs.proceed }}
+        secrets: inherit
+
+    deploy-preprod:
+        runs-on: ubuntu-latest
+        # if: ${{ always() && needs.check-status.outputs.proceed-status == 'GO'  }}
+        needs:  check-status
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Deploy to PreProd
+              run: |
+                echo "Deploying to PreProd"
+
+    # ask-approval:
+    #     needs: get-proceed-status
+    #     if: ${{ always() && needs.get-proceed-status.result == 'failure'  }}
+    #     uses: prhsag/alpha/.github/workflows/request-review.yaml@main
+    #     with:
+    #         proceed: ${{ needs.get-proceed-status.outputs.proceed-status }}
+
+
+    
+
+# At this time the private repository use is only available on GitHub Enterprise Cloud so you would have to upgrade your organisation to that plan.
