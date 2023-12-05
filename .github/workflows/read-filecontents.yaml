@@ -12,6 +12,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Call reusable action
-        uses: SAG-Trial/QM/.github/actions/GetPwdFile@main
-        env:
-          MY_PAT: ${{ secrets.MY_PAT }}
+        uses: SAG-Trial/QM/.github/actions/GetPasswordDocker@main
+        
