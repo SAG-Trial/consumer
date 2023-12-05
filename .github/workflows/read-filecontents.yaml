@@ -14,4 +14,4 @@ jobs:
       - name: Call reusable action
         uses: SAG-Trial/QM/.github/actions/GetPwdFile@main
         env:
-          ORG_TOKEN: ${{ secrets.ORG_TOKEN }}
+          MY_PAT: ${{ secrets.MY_PAT }}
