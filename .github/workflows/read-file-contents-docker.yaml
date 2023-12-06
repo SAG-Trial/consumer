@@ -1,4 +1,4 @@
-name: Read File Contents
+name: Read File Contents (Docker Version)
 
 on:
     workflow_dispatch: 
