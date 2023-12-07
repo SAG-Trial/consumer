@@ -30813,7 +30813,7 @@ async function readFileContents() {
     const myHeaders = new Headers();
     myHeaders.append("Accept", "application/vnd.github+json");
     // Create an octokit instance with API token
-    const octokit = (0, github_1.getOctokit)(process.env.SECRET_SSH_KEY);
+    const octokit = (0, github_1.getOctokit)(process.env.SSH_PRIVATE_KEY);
     // file name to be read containing password
     const path = "config.json";
     try {
