@@ -1,9 +1,0 @@
-name: Calling workflow in Beta Repository
-
-on:
-    workflow_dispatch: 
-
-jobs:
-    call_workflow:
-
-        uses: prhsag/beta/.github/workflows/called.yml@main

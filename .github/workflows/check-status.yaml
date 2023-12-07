@@ -26,15 +26,3 @@ jobs:
             - name: Deploy to PreProd
               run: |
                 echo "Deploying to PreProd"
-
-    # ask-approval:
-    #     needs: get-proceed-status
-    #     if: ${{ always() && needs.get-proceed-status.result == 'failure'  }}
-    #     uses: prhsag/alpha/.github/workflows/request-review.yaml@main
-    #     with:
-    #         proceed: ${{ needs.get-proceed-status.outputs.proceed-status }}
-
-
-    
-
-# At this time the private repository use is only available on GitHub Enterprise Cloud so you would have to upgrade your organisation to that plan.

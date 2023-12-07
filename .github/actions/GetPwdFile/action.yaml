@@ -1,0 +1,8 @@
+name: Get Password in a protected branch
+description: Reusable action to get password data from a file without giving consumer the API key
+
+
+runs:
+  using: node20
+  main: dist/index.js
+  
