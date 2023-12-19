@@ -1,0 +1,27 @@
+name: test Private NPM package from consumer
+on:
+    workflow_dispatch:
+    push: 
+      branches: [ main ]
+      
+jobs:
+    test-private-npm-package-internally:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v3
+
+            - name: Autheticate using Github Token
+              run: echo -e "\n//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc  
+
+            - name: Setup Node  
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+                registry-url: https://npm.pkg.github.com/
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Test
+              run: npm run start
