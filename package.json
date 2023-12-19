@@ -1,0 +1,16 @@
+{
+    "name": "npmpackagejson",
+    "version": "1.0.0",
+    "description": "testing private npm package from QM repo",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "@sag-trial/hello-npm-github-package": "1.0.0"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+  
