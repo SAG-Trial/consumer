@@ -5,12 +5,12 @@ on:
 
 jobs:
   read_file_contents:
-    runs-on: ubuntu-latest
+    uses: SAG-Trial/QM/.github/workflows/git-secret-docker.yaml@main
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v3
 
-      - name: Call reusable action
-        uses: SAG-Trial/QM/.github/actions/GetPasswordDocker@main
+    #   - name: Call reusable action
+    #     uses: SAG-Trial/QM/.github/actions/GetPasswordDocker@main
         
