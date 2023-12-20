@@ -5,23 +5,26 @@ on:
       branches: [ main ]
       
 jobs:
-    test-private-npm-package-internally:
+    test-private-npm-package-from-consumer:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout the repo
               uses: actions/checkout@v3
 
-            - name: Autheticate using Github Token
-              run: echo -e "\n//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc  
+            - name: Use Composite QM's Action
+              uses: SAG-Trial/QM/.github/actions/TestPrivateNPMPackage@main   
 
-            - name: Setup Node  
-              uses: actions/setup-node@v4
-              with:
-                node-version: 20
-                registry-url: https://npm.pkg.github.com/
+            # - name: Autheticate using Github Token
+            #   run: echo -e "\n//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc  
 
-            - name: Install dependencies
-              run: npm install
+            # - name: Setup Node  
+            #   uses: actions/setup-node@v4
+            #   with:
+            #     node-version: 20
+            #     registry-url: https://npm.pkg.github.com/
 
-            - name: Test
-              run: npm run start
+            # - name: Install dependencies
+            #   run: npm install
+
+            # - name: Test
+            #   run: npm run start
