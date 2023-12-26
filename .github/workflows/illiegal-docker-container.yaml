@@ -53,3 +53,6 @@ jobs:
               env:
                 RUNNER_CONTEXT: ${{ toJson(runner) }}
               run: echo "$RUNNER_CONTEXT"
+            
+            - name: GITHUB ACTIONS Variable
+              run: echo "$GITHUB_ACTION"
