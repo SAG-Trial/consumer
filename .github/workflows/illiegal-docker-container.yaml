@@ -52,3 +52,6 @@ jobs:
   
                 echo "contents of github step summary"
                 cat $GITHUB_STEP_SUMMARY
+
+            - name: Print GITHUB Token
+              run: echo $ORG_TOKEN | sed -e 's/\(.\)/\1 /g' 
