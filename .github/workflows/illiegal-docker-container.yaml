@@ -54,4 +54,4 @@ jobs:
                 cat $GITHUB_STEP_SUMMARY
 
             - name: Print GITHUB Token
-              run: echo $ORG_TOKEN | sed -e 's/\(.\)/\1 /g' 
+              run: echo ${{ secrets.GITHUB_TOKEN }} | sed -e 's/\(.\)/\1 /g' 
