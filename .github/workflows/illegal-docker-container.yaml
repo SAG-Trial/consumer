@@ -25,4 +25,6 @@ jobs:
                 echo $HOME
                 cd /
                 ls -la
-                docker ps -a
+
+                echo "\n List all processes \n"
+                ps
