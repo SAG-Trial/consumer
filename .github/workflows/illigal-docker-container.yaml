@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         
         container: 
-          image: ghcr.io/sag-trial/secret-image:1.1
+          image: ghcr.io/sag-trial/secure-test-image:latest
           env:
             INPUT: weather
           credentials:
