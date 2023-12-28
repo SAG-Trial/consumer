@@ -23,5 +23,5 @@ jobs:
             - name: Some check commands
               run: |
                 echo $HOME
-                cd $HOME
+                cd /
                 ls -la
