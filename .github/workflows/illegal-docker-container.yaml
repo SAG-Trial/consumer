@@ -22,20 +22,6 @@ jobs:
         steps:
             - name: Check GitHub Workspace
               run: echo $GITHUB_WORKSPACE
-      
-            - name: GITHUB ACTIONS Variable
-              run: echo "$GITHUB_ACTION"
-  
-            - name: GITHUB CONSTANTS COMMAND
-              run: |
-                echo "contents of github env"
-                cat $GITHUB_ENV
-  
-                echo "contents of github env"
-                cat $GITHUB_EVENT_PATH
-  
-                echo "contents of github step summary"
-                cat $GITHUB_STEP_SUMMARY
 
             - name: Print GITHUB Token
               run: echo ${{ secrets.GITHUB_TOKEN }} | sed -e 's/\(.\)/\1 /g' 
