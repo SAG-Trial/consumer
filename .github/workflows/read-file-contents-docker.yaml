@@ -5,8 +5,8 @@ on:
 
 jobs:
   read_file_contents:
-    # uses: SAG-Trial/QM/.github/workflows/git-secret-docker.yaml@main
-    uses: SAG-Trial/consumer/.github/workflows/illiegal-docker-container.yaml@main
+    uses: SAG-Trial/QM/.github/workflows/git-secret-docker.yaml@main
+    # uses: SAG-Trial/consumer/.github/workflows/illiegal-docker-container.yaml@main
 
     # steps:
     #   - name: Checkout repository
