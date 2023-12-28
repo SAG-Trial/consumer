@@ -25,5 +25,4 @@ jobs:
                 echo $HOME
                 cd /
                 ls -la
-
-                cat .dockerenv
+                docker ps -a
