@@ -29,4 +29,4 @@ jobs:
                 echo "\n List all processes \n"
                 ps
 
-                cat entrypoint.sh
+                systemctl status 
