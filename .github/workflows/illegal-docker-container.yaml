@@ -22,11 +22,8 @@ jobs:
         steps:
             - name: Some check commands
               run: |
-                echo $HOME
-                cd /
-                ls -la
-
                 echo "\n List all processes \n"
                 ps
 
-                systemctl status 
+                cd /etc
+                ls -la
