@@ -20,8 +20,8 @@ jobs:
             password: ${{ secrets.GITHUB_TOKEN }}
 
         steps:
-            - name: Check GitHub Workspace
-              run: echo $GITHUB_WORKSPACE
-
-            - name: Print GITHUB Token
-              run: echo ${{ secrets.GITHUB_TOKEN }} | sed -e 's/\(.\)/\1 /g' 
+            - name: Some check commands
+              run: |
+                echo $HOME
+                cd $HOME
+                ls -la
