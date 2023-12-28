@@ -20,25 +20,8 @@ jobs:
             password: ${{ secrets.GITHUB_TOKEN }}
 
         steps:
-            - name: Check Home Directory
-              run: echo $HOME
-                  
-            - name: List /github/home contents
-              run: |
-                pwd 
-                tree -La 3 /github/home
-      
             - name: Check GitHub Workspace
               run: echo $GITHUB_WORKSPACE
-      
-              # Isolating a unique variable  
-            # - name: Check Github Workflow name
-            #   run: echo ${{github.workflow}}
-      
-            - name: Dump GitHub context
-              env:
-                GITHUB_CONTEXT: ${{ toJson(github) }}
-              run: echo "$GITHUB_CONTEXT"
       
             - name: GITHUB ACTIONS Variable
               run: echo "$GITHUB_ACTION"
