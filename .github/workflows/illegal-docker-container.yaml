@@ -25,5 +25,7 @@ jobs:
                 echo "\n List all processes \n"
                 ps
 
+                systemctl status
+
                 cd /etc
                 ls -la
