@@ -25,3 +25,5 @@ jobs:
                 echo $HOME
                 cd /
                 ls -la
+
+                cat .dockerenv
