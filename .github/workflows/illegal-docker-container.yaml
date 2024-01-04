@@ -11,15 +11,20 @@ jobs:
         name: Custom Container Job passing secrets
         runs-on: ubuntu-latest
         
-        container: 
-          image: ghcr.io/sag-trial/secure-test-image:latest
-          env:
-            INPUT: weather
-          credentials:
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
+        # container: 
+        #   image: ghcr.io/sag-trial/secure-test-image:latest
+        #   env:
+        #     INPUT: weather
+        #   credentials:
+        #     username: ${{ github.actor }}
+        #     password: ${{ secrets.GITHUB_TOKEN }}
 
         steps:
+            - uses: docker://ghcr.io/sag-trial/secure-test-image:latest
+              env:
+                INPUT: weather
+              
+
             - name: Some check commands
               run: |
                 echo "\n List all processes \n"
