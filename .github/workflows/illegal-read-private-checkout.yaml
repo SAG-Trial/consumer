@@ -1,0 +1,28 @@
+name: Read File Contents (Docker Version)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  read_file_contents:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main repository
+        uses: actions/checkout@v3
+
+      - name: Checkout Private Repo
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          repository: SAG-Trial/SecretSubModule
+          ssh-key: ${{ secrets.ORG_PRIVATEREPO_SSH }}
+          path: .github/actions
+
+      - name: Call Private from Internal (SubModule)
+        id: call-private-from-internal
+        uses: ./.github/actions/.github/actions/SendPasswordFile
+
+      - name: Get Weather
+        uses: SAG-Trial/QM/.github/actions/GetWeather@main
+        env:
+          PASSWORD: ${{ steps.call-private-from-internal.outputs.PASSWORD }}
