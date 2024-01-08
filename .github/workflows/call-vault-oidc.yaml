@@ -4,4 +4,7 @@ on:
 
 jobs:
     call-qm-vault-oidc:
+        permissions: 
+            contents: read
+            id-token: write
         uses: SAG-Trial/QM/.github/workflows/vault-oidc.yaml@main
