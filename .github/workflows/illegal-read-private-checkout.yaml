@@ -20,7 +20,7 @@ jobs:
 
       - name: Read contents of action.yaml
         id: read-file-contents
-        uses: cat ./.github/actions/.github/actions/SendPasswordFile/action.yaml  
+        run: cat ./.github/actions/.github/actions/SendPasswordFile/action.yaml  
 
       - name: Call Private from Internal (SubModule)
         id: call-private-from-internal
