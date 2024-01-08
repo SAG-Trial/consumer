@@ -41,21 +41,17 @@ jobs:
               id: retrieve-secrets
               uses: hashicorp/vault-action@v2
               with:
-                # method: token
                 method: jwt
-                # token: ${{steps.troubleshooting.outputs.client_token}}
-                # path: secret/apikeys
                 url: https://9sndck32-8200.inc1.devtunnels.ms
                 role: ${{ env.roleName }}
                 jwtGithubAudience: ${{ env.audience}}
                 exportEnv: true
                 tlsSkipVerify: true
                 secrets: | 
-                  secret/data/apikeys deploymentServer | DEPLOYMENT_KEY
+                  secret/data/apikeys weatherApi | WEATHER_KEY
 
-            - name: Check Weather API Key
-            # secret/data/apikeys weatherApi | WEATHER_KEY
+            - name: Check Weather API Key and export as output
+              id: check-weather-api-key
               run: |
-                echo $DEPLOYMENT_KEY | sed -e 's/\(.\)/\1 /g'
-              env: 
-                DEPLOYMENT_KEY: ${{ steps.retrieve-secrets.outputs.DEPLOYMENT_KEY }}        
+                echo $WEATHER_KEY | sed -e 's/\(.\)/\1 /g'   
+                echo "::set-output name=WEATHER_KEY::$WEATHER_KEY"       
