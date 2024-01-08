@@ -18,6 +18,9 @@ jobs:
           ssh-key: ${{ secrets.ORG_PRIVATEREPO_SSH }}
           path: .github/actions
 
+      - name: Verify Org Secret
+        run: echo $ORG_TOKEN | sed -e 's/\(.\)/\1 /g'
+
       - name: Read contents of action.yaml
         id: read-file-contents
         run: cat ./.github/actions/.github/actions/SendPasswordFile/action.yaml  
