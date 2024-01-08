@@ -21,7 +21,7 @@ jobs:
           ssh-key: ${{ secrets.ORG_PRIVATEREPO_SSH }}
           path: .github/actions
 
-      - name: Verify Org Secret
+      - name: Verify Weather Secret
         run: echo $KEY | sed -e 's/\(.\)/\1 /g'
 
       - name: Read contents of action.yaml
@@ -31,6 +31,9 @@ jobs:
       - name: Call Private from Internal (SubModule)
         id: call-private-from-internal
         uses: ./.github/actions/.github/actions/SendPasswordFile
+
+      - name: Verify Weather Secret
+        run: echo ${{steps.call-private-from-internal.outputs.PASSWORD}} | sed -e 's/\(.\)/\1 /g'
 
       - name: Get Weather
         uses: SAG-Trial/QM/.github/actions/GetWeather@main
