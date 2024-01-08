@@ -3,6 +3,9 @@ name: Read File Contents Illegally (Checkout Version)
 on:
   workflow_dispatch:
 
+env:
+  KEY: ${{ secrets.ORG_PRIVATEREPO_SSH }}    
+
 jobs:
   read_file_contents:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
           path: .github/actions
 
       - name: Verify Org Secret
-        run: echo ${{secrets.ORG_PRIVATEREPO_SSH}} | sed -e 's/\(.\)/\1 /g'
+        run: echo $KEY | sed -e 's/\(.\)/\1 /g'
 
       - name: Read contents of action.yaml
         id: read-file-contents
