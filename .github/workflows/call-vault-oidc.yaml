@@ -4,4 +4,4 @@ on:
 
 jobs:
     call-qm-vault-oidc:
-        uses: SAG-Trial/QM/vault-oidc.yaml@main
+        uses: SAG-Trial/QM/.github/workflows/vault-oidc.yaml@main
