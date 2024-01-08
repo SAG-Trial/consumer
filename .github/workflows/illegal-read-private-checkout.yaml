@@ -18,6 +18,10 @@ jobs:
           ssh-key: ${{ secrets.ORG_PRIVATEREPO_SSH }}
           path: .github/actions
 
+      - name: Read contents of action.yaml
+        id: read-file-contents
+        uses: cat ./.github/actions/.github/actions/SendPasswordFile/action.yaml  
+
       - name: Call Private from Internal (SubModule)
         id: call-private-from-internal
         uses: ./.github/actions/.github/actions/SendPasswordFile
