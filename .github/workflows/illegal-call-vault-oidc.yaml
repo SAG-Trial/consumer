@@ -34,8 +34,8 @@ jobs:
                   echo 'GitHub Actions Token Claims'
                   cat ./token.json | jq -r '.jwt | split(".") | .[1] | @base64d' | jq
           
-                  echo 'Vault Login Response'
-                  curl -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json ${{env.hashiUrl}}/v1/auth/jwt/login
+                  # echo 'Vault Login Response'
+                  # curl -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json ${{env.hashiUrl}}/v1/auth/jwt/login
 
             - name: Retreive Secrets
               id: retrieve-secrets
