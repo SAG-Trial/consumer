@@ -1,0 +1,7 @@
+name: Call QM's Vault OIDC Login
+on:
+    workflow_dispatch: 
+
+jobs:
+    call-qm-vault-oidc:
+        uses: SAG-Trial/QM/vault-oidc.yaml@main
