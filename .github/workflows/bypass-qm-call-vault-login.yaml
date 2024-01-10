@@ -1,0 +1,28 @@
+name: Bypass QM's Vault OIDC Login
+on:
+    workflow_dispatch: 
+
+
+jobs:
+    get-jwt-token:
+        env:
+            aud: https://github.com/SAG-Trial
+        permissions:
+            id-token: write
+            contents: read
+        runs-on: ubuntu-latest
+        outputs:
+            signedJWTencoded: ${{ steps.generate-oidc-token.outputs.SIGNED_JWT_ENCODED_BASE64 }}
+        steps:
+            - name: Generate OIDC Token
+              id: generate-oidc-token  
+              uses: SAG-Trial/QM/.github/actions/GenerateOIDCToken@main
+        
+    reuse-conditional-vault:
+      needs: get-jwt-token
+      permissions:
+          id-token: write
+          contents: read
+      uses: SAG-Trial/QM/.github/workflows/conditional-vault.yaml@main
+      with:
+        PARENT_TOKEN: ${{ needs.get-jwt-token.outputs.signedJWTencoded }}
