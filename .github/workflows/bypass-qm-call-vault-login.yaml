@@ -4,25 +4,25 @@ on:
 
 
 jobs:
-    get-jwt-token:
-        env:
-            aud: https://github.com/SAG-Trial
+    generate-jwt-token:
+        name: Generate a Workflow JWT Token for authorization to Vault
         permissions:
             id-token: write
             contents: read
         runs-on: ubuntu-latest
-        outputs:
-            signedJWTencoded: ${{ steps.generate-oidc-token.outputs.SIGNED_JWT_ENCODED_BASE64 }}
         steps:
             - name: Generate OIDC Token
               id: generate-oidc-token  
-              uses: SAG-Trial/QM/.github/actions/GenerateOIDCToken@main
+              uses: SAG-Trial/QM/.github/actions/GenerateOIDCToken@main  
+        outputs:
+            oidc: ${{ steps.generate-oidc-token.outputs.OIDC_BASE64 }}
         
     reuse-conditional-vault:
-      needs: get-jwt-token
+      name: Bypassing QM Repo and calling Vault login directly
+      needs: generate-jwt-token
       permissions:
           id-token: write
           contents: read
       uses: SAG-Trial/QM/.github/workflows/conditional-vault.yaml@main
       with:
-        PARENT_TOKEN: ${{ needs.get-jwt-token.outputs.signedJWTencoded }}
+        PARENT_TOKEN: ${{ needs.generate-jwt-token.outputs.oidc }}

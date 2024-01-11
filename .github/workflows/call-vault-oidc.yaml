@@ -8,4 +8,4 @@ jobs:
             contents: read
             id-token: write
         # uses: SAG-Trial/QM/.github/workflows/vault-oidc.yaml@main
-        uses: SAG-Trial/QM/.github/workflows/call-conditional-vault.yaml@main
+        uses: SAG-Trial/QM/.github/workflows/qm-get-weather-data.yaml@main
