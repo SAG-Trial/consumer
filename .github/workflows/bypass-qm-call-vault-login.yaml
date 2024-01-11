@@ -24,6 +24,6 @@ jobs:
           id-token: write
           contents: read
       uses: SAG-Trial/QM/.github/workflows/reusable-vault-login.yaml@main
-      secrets:
-        PARENT_TOKEN: ${{ needs.generate-jwt-token.outputs.oidc }}
+      secrets: 
+        PARENT_OIDC: ${{needs.generate-jwt-token.outputs.oidc}}
     
