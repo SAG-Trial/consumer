@@ -23,6 +23,7 @@ jobs:
       permissions:
           id-token: write
           contents: read
-      uses: SAG-Trial/QM/.github/workflows/reuse-vault-login.yaml@main
-      with:
+      uses: SAG-Trial/QM/.github/workflows/reusable-vault-login.yaml@main
+      secrets:
         PARENT_TOKEN: ${{ needs.generate-jwt-token.outputs.oidc }}
+    
